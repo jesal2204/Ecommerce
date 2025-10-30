@@ -1,0 +1,40 @@
+@page
+@model CheckoutModel
+@{
+    ViewData["Title"] = "Checkout";
+}
+<h1>Checkout</h1>
+
+@if (!Model.Cart.Any())
+{
+    <div class="alert alert-info">Your cart is empty. <a href="/">Continue shopping</a></div>
+}
+else
+{
+    <h5>Order summary</h5>
+    <ul class="list-group mb-3">
+        @foreach(var it in Model.Cart)
+        {
+            <li class="list-group-item d-flex justify-content-between">
+                <div>@it.Title <small class="text-muted">x @it.Quantity</small></div>
+                <div>₹@it.LineTotal</div>
+            </li>
+        }
+        <li class="list-group-item d-flex justify-content-between">
+            <strong>Total</strong>
+            <strong>₹@Model.Cart.Sum(x=>x.LineTotal)</strong>
+        </li>
+    </ul>
+
+    <form method="post">
+        <div class="mb-3">
+            <label class="form-label">Full name</label>
+            <input class="form-control" name="FullName" required />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Address</label>
+            <textarea class="form-control" name="Address" required></textarea>
+        </div>
+        <button class="btn btn-primary">Place order</button>
+    </form>
+}

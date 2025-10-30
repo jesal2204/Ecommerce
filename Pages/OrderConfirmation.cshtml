@@ -1,0 +1,12 @@
+@page
+@model OrderConfirmationModel
+
+@{
+    ViewData["Title"] = "Order Placed";
+}
+<h1>Thank you!</h1>
+<p>Your order has been placed.</p>
+<p><strong>Name:</strong> @TempData["OrderName"]</p>
+<p><strong>Total:</strong> ₹@TempData["OrderTotal"]</p>
+
+<a href="/" class="btn btn-primary">Continue shopping</a>
