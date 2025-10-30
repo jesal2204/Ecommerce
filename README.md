@@ -24,7 +24,7 @@ It demonstrates basic functionalities of an online store such as product listing
 | **Backend** | ASP.NET Core MVC (.NET 8) |
 | **Database** | SQL Server / LocalDB |
 | **ORM** | Entity Framework Core |
-| **IDE** | Visual Studio 2022 |
+| **IDE** | Visual Studio 2022
 
 ---
 
